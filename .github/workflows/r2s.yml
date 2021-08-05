@@ -1,0 +1,13 @@
+name: OpenWrt R2S CI
+on:
+  schedule:
+    - cron:  '0 10 * * *'
+  watch:
+    types: started
+
+jobs:
+  openwrt:	
+    runs-on: ubuntu-20.04	
+    steps:	
+    - name: 01 - clone repository
+      uses: actions/checkout@v2
