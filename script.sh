@@ -71,7 +71,8 @@ cp -rf ../openwrt-immortalwrt/package/emortal/autocore package/autocore
 
 # Cpufreq
 
-cp -rf ../immortalwrt-luci/applications/luci-app-cpufreq package/feeds/luci/luci-app-cpufreq
+cp -rf ../immortalwrt-luci/applications/luci-app-cpufreq feeds/luci/applications/luci-app-cpufreq
+ln -sf ../../../feeds/luci/applications/luci-app-cpufreq ./package/feeds/luci/luci-app-cpufreq
 
 # KMS
 
