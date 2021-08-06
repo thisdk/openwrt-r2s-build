@@ -64,12 +64,12 @@ git clone --single-branch --depth 1 -b dev https://github.com/vernesong/OpenClas
 
 # copy build file and config
 
-# cp ../.config .config
+cp ../.config .config
 
 # openwrt build dependencies
 
-# make defconfig && make download -j8
+make defconfig && make download -j8
 
 # make openwrt source
 
-# make -j4
+make -j4
