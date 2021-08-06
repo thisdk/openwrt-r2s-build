@@ -6,6 +6,7 @@ git clone -b openwrt-21.02 https://git.openwrt.org/openwrt/openwrt.git
 git clone -b main https://github.com/Lienol/openwrt.git openwrt-lienol
 git clone -b master https://github.com/thisdk/immortalwrt.git openwrt-immortalwrt
 git clone -b master https://github.com/immortalwrt/packages.git immortalwrt-packages
+git clone -b master https://github.com/thisdk/luci.git immortalwrt-luci
 
 # version replace
 
@@ -67,6 +68,10 @@ cp -rf ../openwrt-lienol/package/network/fullconenat package/network/fullconenat
 rm -rf feeds/packages/utils/coremark
 cp -rf ../immortalwrt-packages/utils/coremark feeds/packages/utils/coremark
 cp -rf ../openwrt-immortalwrt/package/emortal/autocore package/autocore
+
+# Cpufreq
+
+cp -rf ../immortalwrt-luci/applications/luci-app-cpufreq package/feeds/luci/luci-app-cpufreq
 
 # KMS
 
