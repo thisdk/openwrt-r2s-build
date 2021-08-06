@@ -6,7 +6,6 @@ git clone -b openwrt-21.02 https://git.openwrt.org/openwrt/openwrt.git
 git clone -b main https://github.com/Lienol/openwrt.git openwrt-lienol
 git clone -b master https://github.com/immortalwrt/immortalwrt.git openwrt-immortalwrt-
 git clone -b master https://github.com/immortalwrt/packages.git immortalwrt-packages
-git clone -b master https://github.com/coolsnowwolf/lede.git openwrt-lede
 
 # version replace
 
@@ -47,7 +46,7 @@ mkdir package/network/config/firewall/patches
 wget -P package/network/config/firewall/patches/ https://github.com/immortalwrt/immortalwrt/raw/master/package/network/config/firewall/patches/fullconenat.patch
 wget -qO- https://github.com/msylgj/R2S-R4S-OpenWrt/raw/21.02/SCRIPTS/fix_firewall_flock.patch | patch -p1
 patch -p1 < ../PATCH/firewall/luci-app-firewall_add_fullcone.patch
-cp -rf ../openwrt-lienol/package/network/fullconenat ./package/network/fullconenat
+cp -rf ../openwrt-lienol/package/network/fullconenat package/network/fullconenat
 
 # AutoCore
 
@@ -57,12 +56,11 @@ cp -rf ../openwrt-immortalwrt/package/emortal/autocore package/lean/autocore
 
 # KMS
 
-cp -rf ../openwrt-lede/package/lean/luci-app-vlmcsd package/lean/luci-app-vlmcsd
-cp -rf ../openwrt-lede/package/lean/vlmcsd package/lean/vlmcsd
+git clone https://github.com/gw826943555/openwrt-vlmcsd.git package/openwrt-vlmcsd
 
 # OpenClash
 
-git clone https://github.com/vernesong/OpenClash.git package/OpenClash
+git clone --single-branch --depth 1 -b dev https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 
 # copy build file and config
 
