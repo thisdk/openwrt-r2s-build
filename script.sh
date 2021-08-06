@@ -15,6 +15,12 @@ cd openwrt && sed -i 's/-SNAPSHOT/.1/g' include/version.mk
 
 sed -i 's/Os/O3 -funsafe-math-optimizations -funroll-loops -ffunction-sections -fdata-sections -Wl,--gc-sections/g' include/target.mk
 
+# IRQ eth0 offloading rx/rx
+
+sed -i '/set_interface_core 4 "eth1"/a\set_interface_core 8 "ff160000" "ff160000.i2c"' target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/40-net-smp-affinity
+sed -i '/set_interface_core 4 "eth1"/a\set_interface_core 1 "ff150000" "ff150000.i2c"' target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/40-net-smp-affinity
+sed -i '/;;/i\ethtool -K eth0 rx off tx off && logger -t disable-offloading "disabed rk3328 ethernet tcp/udp offloading tx/rx"' target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/40-net-smp-affinity
+
 # wan / lan
 
 sed -i 's,"eth1" "eth0","eth0" "eth1",g' target/linux/rockchip/armv8/base-files/etc/board.d/02_network
@@ -27,6 +33,10 @@ sed -i 's/16384/65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 # clone openwrt plugin source
 
 ./scripts/feeds update -a && ./scripts/feeds install -a
+
+# Config IRQ
+
+sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
 
 # BBRv2
 
@@ -68,12 +78,12 @@ git clone --single-branch --depth 1 -b dev https://github.com/vernesong/OpenClas
 
 # copy build file and config
 
-cp ../.config .config
+# cp ../.config .config
 
 # openwrt build dependencies
 
-make defconfig && make download -j8
+# make defconfig && make download -j8
 
 # make openwrt source
 
-make -j4
+# make -j4
