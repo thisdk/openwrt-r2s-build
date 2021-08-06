@@ -49,7 +49,7 @@ wget -P target/linux/generic/hack-5.4 https://github.com/immortalwrt/immortalwrt
 mkdir package/network/config/firewall/patches
 wget -P package/network/config/firewall/patches/ https://github.com/immortalwrt/immortalwrt/raw/master/package/network/config/firewall/patches/fullconenat.patch
 wget -qO- https://github.com/msylgj/R2S-R4S-OpenWrt/raw/21.02/SCRIPTS/fix_firewall_flock.patch | patch -p1
-patch -p1 < ../PATCH/firewall/luci-app-firewall_add_fullcone.patch
+wget -qO- https://raw.githubusercontent.com/QiuSimons/R2S-R4S-X86-OpenWrt/master/PATCH/firewall/luci-app-firewall_add_fullcone.patch | patch -p1
 cp -rf ../openwrt-lienol/package/network/fullconenat package/network/fullconenat
 
 # AutoCore
@@ -57,6 +57,7 @@ cp -rf ../openwrt-lienol/package/network/fullconenat package/network/fullconenat
 rm -rf feeds/packages/utils/coremark
 cp -rf ../immortalwrt-packages/utils/coremark feeds/packages/utils/coremark
 cp -rf ../openwrt-immortalwrt/package/emortal/autocore package/autocore
+cp -rf ../rpcd_luci package/autocore/rpcd_luci
 
 # KMS
 
