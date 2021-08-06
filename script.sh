@@ -12,14 +12,6 @@ git clone --single-branch --depth 1 -b master https://github.com/thisdk/luci.git
 
 cd openwrt && sed -i 's/-SNAPSHOT/.1/g' include/version.mk
 
-# R2S TL
-
-rm -rf target/linux/rockchip
-rm -rf package/boot/uboot-rockchip
-cp -rf ../openwrt-immortalwrt/target/linux/rockchip target/linux/rockchip
-cp -rf ../openwrt-immortalwrt/package/boot/uboot-rockchip package/boot/uboot-rockchip
-cp -rf ../openwrt-immortalwrt/package/boot/arm-trusted-firmware-rk3328 package/boot/arm-trusted-firmware-rk3328
-
 # O3
 
 sed -i 's/Os/O3 -funsafe-math-optimizations -funroll-loops -ffunction-sections -fdata-sections -Wl,--gc-sections/g' include/target.mk
