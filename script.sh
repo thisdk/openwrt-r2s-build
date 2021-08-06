@@ -4,7 +4,7 @@
 
 git clone -b openwrt-21.02 https://git.openwrt.org/openwrt/openwrt.git
 git clone -b main https://github.com/Lienol/openwrt.git openwrt-lienol
-git clone -b master https://github.com/immortalwrt/immortalwrt.git openwrt-immortalwrt-
+git clone -b master https://github.com/immortalwrt/immortalwrt.git openwrt-immortalwrt
 git clone -b master https://github.com/immortalwrt/packages.git immortalwrt-packages
 
 # version replace
@@ -52,7 +52,7 @@ cp -rf ../openwrt-lienol/package/network/fullconenat package/network/fullconenat
 
 rm -rf feeds/packages/utils/coremark
 cp -rf ../immortalwrt-packages/utils/coremark feeds/packages/utils/coremark
-cp -rf ../openwrt-immortalwrt/package/emortal/autocore package/lean/autocore
+cp -rf ../openwrt-immortalwrt/package/emortal/autocore package/autocore
 
 # KMS
 
