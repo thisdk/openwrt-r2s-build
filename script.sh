@@ -2,11 +2,11 @@
 
 # clone openwrt
 
-git clone -b openwrt-21.02 https://git.openwrt.org/openwrt/openwrt.git
-git clone -b main https://github.com/Lienol/openwrt.git openwrt-lienol
-git clone -b master https://github.com/thisdk/immortalwrt.git openwrt-immortalwrt
-git clone -b master https://github.com/immortalwrt/packages.git immortalwrt-packages
-git clone -b master https://github.com/thisdk/luci.git immortalwrt-luci
+git clone --single-branch --depth 1 -b openwrt-21.02 https://git.openwrt.org/openwrt/openwrt.git
+git clone --single-branch --depth 1 -b main https://github.com/Lienol/openwrt.git openwrt-lienol
+git clone --single-branch --depth 1 -b master https://github.com/thisdk/immortalwrt.git openwrt-immortalwrt
+git clone --single-branch --depth 1 -b master https://github.com/immortalwrt/packages.git immortalwrt-packages
+git clone --single-branch --depth 1 -b master https://github.com/thisdk/luci.git immortalwrt-luci
 
 # version replace
 
