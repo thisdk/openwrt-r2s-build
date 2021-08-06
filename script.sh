@@ -11,6 +11,10 @@ git clone -b master https://github.com/immortalwrt/packages.git immortalwrt-pack
 
 cd openwrt && sed -i 's/-SNAPSHOT/.1/g' include/version.mk
 
+# O3
+
+sed -i 's/Os/O3 -funsafe-math-optimizations -funroll-loops -ffunction-sections -fdata-sections -Wl,--gc-sections/g' include/target.mk
+
 # wan / lan
 
 sed -i 's,"eth1" "eth0","eth0" "eth1",g' target/linux/rockchip/armv8/base-files/etc/board.d/02_network
