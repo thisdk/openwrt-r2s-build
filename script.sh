@@ -4,8 +4,7 @@
 
 git clone --single-branch --depth 1 -b openwrt-21.02 https://git.openwrt.org/openwrt/openwrt.git
 git clone --single-branch --depth 1 -b main https://github.com/Lienol/openwrt.git openwrt-lienol
-git clone --single-branch --depth 1 -b master https://github.com/thisdk/immortalwrt.git openwrt-immortalwrt
-git clone --single-branch --depth 1 -b master https://github.com/immortalwrt/packages.git immortalwrt-packages
+git clone --single-branch --depth 1 -b master https://github.com/thisdk/immortalwrt.git immortalwrt-openwrt
 git clone --single-branch --depth 1 -b master https://github.com/thisdk/luci.git immortalwrt-luci
 
 # version replace
@@ -65,9 +64,7 @@ cp -rf ../openwrt-lienol/package/network/fullconenat package/network/fullconenat
 
 # AutoCore
 
-rm -rf feeds/packages/utils/coremark
-cp -rf ../immortalwrt-packages/utils/coremark feeds/packages/utils/coremark
-cp -rf ../openwrt-immortalwrt/package/emortal/autocore package/autocore
+cp -rf ../immortalwrt-openwrt/package/emortal/autocore package/autocore
 
 # Cpufreq
 
