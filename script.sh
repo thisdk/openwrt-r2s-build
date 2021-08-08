@@ -58,15 +58,6 @@ wget -qO- https://github.com/openwrt/openwrt/commit/cfaf039.patch | patch -p1
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/immortalwrt/immortalwrt/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
 wget -P target/linux/rockchip/patches-5.4/ https://raw.githubusercontent.com/immortalwrt/immortalwrt/master/target/linux/rockchip/patches-5.4/991-arm64-dts-rockchip-add-more-cpu-operating-points-for.patch
 
-# Patch
-
-wget -P target/linux/rockchip/patches-5.4/ https://raw.githubusercontent.com/immortalwrt/immortalwrt/master/target/linux/rockchip/patches-5.4/201-rockchip-rk3328-add-i2c0-controller-for-nanopi-r2s.patch
-wget -P target/linux/rockchip/patches-5.4/ https://raw.githubusercontent.com/immortalwrt/immortalwrt/master/target/linux/rockchip/patches-5.4/802-arm64-dts-rockchip-add-hardware-random-number-genera.patch
-wget -P target/linux/rockchip/patches-5.4/ https://raw.githubusercontent.com/immortalwrt/immortalwrt/master/target/linux/rockchip/patches-5.4/807-arm64-dts-nanopi-r2s-add-rk3328-dmc-relate-node.patch
-wget -P target/linux/rockchip/patches-5.4/ https://raw.githubusercontent.com/immortalwrt/immortalwrt/master/target/linux/rockchip/patches-5.4/806-arm64-dts-rockchip-rk3328-add-dfi-node.patch
-wget -P target/linux/rockchip/patches-5.4/ https://raw.githubusercontent.com/immortalwrt/immortalwrt/master/target/linux/rockchip/patches-5.4/805-PM-devfreq-rockchip-dfi-add-more-soc-support.patch
-wget -P target/linux/rockchip/patches-5.4/ https://raw.githubusercontent.com/immortalwrt/immortalwrt/master/target/linux/rockchip/patches-5.4/803-PM-devfreq-rockchip-add-devfreq-driver-for-rk3328-dmc.patch
-
 # AutoCore
 
 cp -rf ../immortalwrt-openwrt/package/emortal/autocore package/autocore
@@ -91,12 +82,12 @@ git clone --single-branch --depth 1 -b master https://github.com/jerrykuku/luci-
 
 # copy build file and config
 
-# cp ../.config .config
+cp ../.config .config
 
 # openwrt build dependencies
 
-# make defconfig && make download -j8
+make defconfig && make download -j8
 
 # make openwrt source
 
-# make -j4
+make -j4
