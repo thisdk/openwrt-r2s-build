@@ -10,6 +10,8 @@ git clone --single-branch --depth 1 -b openwrt-21.02 https://git.openwrt.org/ope
 
 git clone --single-branch --depth 1 -b master https://github.com/thisdk/immortalwrt.git immortalwrt-openwrt
 git clone --single-branch --depth 1 -b master https://github.com/thisdk/luci.git immortalwrt-luci
+# git clone --single-branch --depth 1 -b 21.02 https://github.com/Lienol/openwrt-packages.git lienol-packages
+# git clone --single-branch --depth 1 -b 21.02 https://github.com/Lienol/openwrt-luci.git lienol-luci
 
 # Version Replace
 
@@ -65,7 +67,7 @@ cp -rf ../immortalwrt-openwrt/package/emortal/autocore package/autocore
 # Cpufreq
 
 cp -rf ../immortalwrt-luci/applications/luci-app-cpufreq feeds/luci/applications/luci-app-cpufreq
-ln -sf ../../../feeds/luci/applications/luci-app-cpufreq ./package/feeds/luci/luci-app-cpufreq
+ln -sf ../../../feeds/luci/applications/luci-app-cpufreq package/feeds/luci/luci-app-cpufreq
 sed -i 's,1512,1608,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-defaults/cpufreq
 
 # KMS
@@ -75,6 +77,11 @@ git clone https://github.com/gw826943555/openwrt-vlmcsd.git package/openwrt-vlmc
 # OpenClash
 
 git clone --single-branch --depth 1 -b dev https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+
+# SmartDns
+
+# cp -rf ../lienol-packages/net/smartdns package/smartdns
+# cp -rf ../lienol-luci/applications/luci-app-smartdns package/luci-app-smartdns
 
 # Theme
 
