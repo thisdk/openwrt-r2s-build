@@ -3,23 +3,14 @@
 # clone openwrt
 
 git clone --single-branch --depth 1 -b openwrt-21.02 https://git.openwrt.org/openwrt/openwrt.git
-git clone --single-branch --depth 1 -b main https://github.com/Lienol/openwrt.git openwrt-lienol
-git clone --single-branch --depth 1 -b master https://github.com/thisdk/immortalwrt.git immortalwrt-openwrt
-git clone --single-branch --depth 1 -b master https://github.com/thisdk/luci.git immortalwrt-luci
 
 # version replace
 
-cd openwrt && sed -i 's/-SNAPSHOT/.1/g' include/version.mk
+cd openwrt && sed -i 's/-SNAPSHOT/.0/g' include/version.mk
 
 # O3
 
 sed -i 's/Os/O3 -funsafe-math-optimizations -funroll-loops -ffunction-sections -fdata-sections -Wl,--gc-sections/g' include/target.mk
-
-# IRQ eth0 offloading rx/rx
-
-sed -i '/set_interface_core 4 "eth1"/a\set_interface_core 8 "ff160000" "ff160000.i2c"' target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/40-net-smp-affinity
-sed -i '/set_interface_core 4 "eth1"/a\set_interface_core 1 "ff150000" "ff150000.i2c"' target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/40-net-smp-affinity
-sed -i '/;;/i\ethtool -K eth0 rx off tx off && logger -t disable-offloading "disabed rk3328 ethernet tcp/udp offloading tx/rx"' target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/40-net-smp-affinity
 
 # wan / lan
 
@@ -33,10 +24,6 @@ sed -i 's/16384/65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 # clone openwrt plugin source
 
 ./scripts/feeds update -a && ./scripts/feeds install -a
-
-# Config IRQ
-
-sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
 
 # BBRv2
 
@@ -53,25 +40,6 @@ wget https://raw.githubusercontent.com/QiuSimons/R2S-R4S-X86-OpenWrt/master/PATC
 
 wget -P target/linux/generic/hack-5.4/ https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
 
-# FullConeNAT
-
-wget -P target/linux/generic/hack-5.4 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
-mkdir package/network/config/firewall/patches
-wget -P package/network/config/firewall/patches/ https://github.com/immortalwrt/immortalwrt/raw/master/package/network/config/firewall/patches/fullconenat.patch
-wget -qO- https://github.com/msylgj/R2S-R4S-OpenWrt/raw/21.02/SCRIPTS/fix_firewall_flock.patch | patch -p1
-wget -qO- https://raw.githubusercontent.com/QiuSimons/R2S-R4S-X86-OpenWrt/master/PATCH/firewall/luci-app-firewall_add_fullcone.patch | patch -p1
-cp -rf ../openwrt-lienol/package/network/fullconenat package/network/fullconenat
-
-# AutoCore
-
-cp -rf ../immortalwrt-openwrt/package/emortal/autocore package/autocore
-
-# Cpufreq
-
-cp -rf ../immortalwrt-luci/applications/luci-app-cpufreq feeds/luci/applications/luci-app-cpufreq
-ln -sf ../../../feeds/luci/applications/luci-app-cpufreq ./package/feeds/luci/luci-app-cpufreq
-sed -i 's,1512,1608,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-defaults/cpufreq
-
 # KMS
 
 git clone https://github.com/gw826943555/openwrt-vlmcsd.git package/openwrt-vlmcsd
@@ -86,12 +54,12 @@ git clone --single-branch --depth 1 -b master https://github.com/jerrykuku/luci-
 
 # copy build file and config
 
-cp ../.config .config
+# cp ../.config .config
 
 # openwrt build dependencies
 
-make defconfig && make download -j8
+# make defconfig && make download -j8
 
 # make openwrt source
 
-make -j4
+# make -j4
