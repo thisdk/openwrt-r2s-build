@@ -11,11 +11,9 @@ jobs:
     steps:	
     - name: 01 - clone repository
       uses: actions/checkout@v2
-    - name: 02 - system build dependencies	
-      run: sudo apt-get install subversion build-essential libncurses5-dev zlib1g-dev gawk git ccache gettext libssl-dev xsltproc zip
-    - name: 03 - configure & build
+    - name: 02 - configure & build
       run: bash script.sh
-    - name: 04 - push to artifact file	
+    - name: 03 - push to artifact file	
       uses: actions/upload-artifact@v2	
       with:	
         name: r2s
