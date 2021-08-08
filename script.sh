@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# install Dependent library
+
+sudo apt-get install subversion build-essential libncurses5-dev zlib1g-dev gawk git ccache gettext libssl-dev xsltproc zip
+
 # clone openwrt
 
 git clone --single-branch --depth 1 -b openwrt-21.02 https://git.openwrt.org/openwrt/openwrt.git
