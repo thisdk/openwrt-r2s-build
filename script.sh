@@ -130,11 +130,3 @@ cp -rf ../lienol-luci/applications/luci-app-smartdns feeds/luci/applications/luc
 # Theme
 
 git clone --single-branch --depth 1 -b master https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-
-# copy build file and config
-
-cp ../.config .config
-
-# openwrt build dependencies
-
-make defconfig && make download -j8
