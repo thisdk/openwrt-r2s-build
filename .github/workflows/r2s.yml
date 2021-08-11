@@ -14,6 +14,8 @@ jobs:
     - name: 02 - configure system
       run: bash script.sh
     - name: 03 - build firmware
+      id: build
+      continue-on-error: true
       run: |
         cd openwrt
         cp ../.config .config
@@ -21,8 +23,9 @@ jobs:
         make download -j8
         let core=$(nproc)+2
         make -j${core}
+        echo $?
     - name: 04 - error handle
-      if: steps.compileopenwrt.outcome == 'failure'
+      if: steps.build.outcome == 'failure'
       run: |
         cd openwrt
         make -j1 V=s
