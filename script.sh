@@ -72,17 +72,16 @@ sed -i 's,-mcpu=generic,-mcpu=cortex-a53+crypto,g' include/target.mk
 wget https://raw.githubusercontent.com/QiuSimons/R2S-R4S-X86-OpenWrt/master/PATCH/mbedtls/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch -O package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
 
 # CacULE
-sed -i '/CONFIG_NR_CPUS/d' ./target/linux/rockchip/armv8/config-5.4
+sed -i '/CONFIG_NR_CPUS/d' target/linux/rockchip/armv8/config-5.4
 echo '
 CONFIG_NR_CPUS=4
-' >> ./target/linux/rockchip/armv8/config-5.4
+' >> target/linux/rockchip/armv8/config-5.4
 
 # UKSM
 echo '
 CONFIG_KSM=y
 CONFIG_UKSM=y
-' >> ./target/linux/rockchip/armv8/config-5.4
-
+' >> target/linux/rockchip/armv8/config-5.4
 
 # IRQ eth0 offloading rx/rx
 
@@ -134,12 +133,12 @@ git clone --single-branch --depth 1 -b master https://github.com/jerrykuku/luci-
 
 # copy build file and config
 
-# cp ../.config .config
+cp ../.config .config
 
 # openwrt build dependencies
 
-# make defconfig && make download -j8
+make defconfig && make download -j8
 
 # make openwrt source
 
-# make -j4
+make -j4
