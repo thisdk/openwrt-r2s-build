@@ -29,5 +29,5 @@ jobs:
     - name: 05 - push to artifact file	
       uses: actions/upload-artifact@v2	
       with:	
-        name: r2s
-        path: openwrt/bin/targets/rockchip/armv8/
+        name: r2s-firmware
+        path: openwrt/bin/targets/rockchip/armv8/*.img.gz
