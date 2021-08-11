@@ -11,14 +11,19 @@ jobs:
     steps:	
     - name: 01 - clone repository
       uses: actions/checkout@v2
-    - name: 02 - configure & build
+    - name: 02 - configure system
       run: bash script.sh
-    - name: 03 - error handle
+    - name: 03 - build firmware
+      run: |
+        cd openwrt
+        let core=$(nproc)+2
+        make -j${core}
+    - name: 04 - error handle
       if: steps.compileopenwrt.outcome == 'failure'
       run: |
         cd openwrt
         make -j1 V=s
-    - name: 03 - push to artifact file	
+    - name: 05 - push to artifact file	
       uses: actions/upload-artifact@v2	
       with:	
         name: r2s
