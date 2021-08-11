@@ -2,7 +2,7 @@
 
 # Install Dependent library
 
-sudo apt install -y subversion build-essential libncurses5-dev zlib1g-dev gawk git ccache gettext libssl-dev xsltproc zip
+sudo apt-get install -y subversion build-essential libncurses5-dev zlib1g-dev gawk git ccache gettext libssl-dev xsltproc zip
 
 # Clone Openwrt
 
