@@ -138,7 +138,3 @@ cp ../.config .config
 # openwrt build dependencies
 
 make defconfig && make download -j8
-
-# make openwrt source
-
-make -j1 V=s
