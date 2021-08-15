@@ -120,6 +120,11 @@ git clone https://github.com/gw826943555/openwrt-vlmcsd.git package/openwrt-vlmc
 
 git clone --single-branch --depth 1 -b dev https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 
+# Xray
+
+git clone https://github.com/yichya/openwrt-xray.git package/openwrt-xray
+git clone https://github.com/yichya/luci-app-xray.git package/luci-app-xray
+
 # SmartDns
 
 rm -rf feeds/packages/net/smartdns
