@@ -16,7 +16,7 @@ git clone --single-branch --depth 1 -b 21.02 https://github.com/Lienol/openwrt-l
 
 # Version Replace
 
-cd openwrt && sed -i 's/-SNAPSHOT/.0/g' include/version.mk
+cd openwrt && sed -i 's/.02-SNAPSHOT/.02.0/g' include/version.mk
 
 # O3
 
