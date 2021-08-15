@@ -49,12 +49,12 @@ wget https://raw.githubusercontent.com/QiuSimons/R2S-R4S-X86-OpenWrt/master/PATC
 
 # Fullcone Nat
 
-wget -P target/linux/generic/hack-5.4 https://raw.githubusercontent.com/immortalwrt/immortalwrt/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
-mkdir package/network/config/firewall/patches
-wget -P package/network/config/firewall/patches https://raw.githubusercontent.com/immortalwrt/immortalwrt/master/package/network/config/firewall/patches/fullconenat.patch
-wget -qO- https://raw.githubusercontent.com/msylgj/R2S-R4S-OpenWrt/21.02/PATCHES/001-fix-firewall-flock.patch | patch -p1
-wget -qO- https://raw.githubusercontent.com/QiuSimons/R2S-R4S-X86-OpenWrt/master/PATCH/firewall/luci-app-firewall_add_fullcone.patch | patch -p1
-cp -rf ../lienol-openwrt/package/network/fullconenat package/fullconenat
+# wget -P target/linux/generic/hack-5.4 https://raw.githubusercontent.com/immortalwrt/immortalwrt/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
+# mkdir package/network/config/firewall/patches
+# wget -P package/network/config/firewall/patches https://raw.githubusercontent.com/immortalwrt/immortalwrt/master/package/network/config/firewall/patches/fullconenat.patch
+# wget -qO- https://raw.githubusercontent.com/msylgj/R2S-R4S-OpenWrt/21.02/PATCHES/001-fix-firewall-flock.patch | patch -p1
+# wget -qO- https://raw.githubusercontent.com/QiuSimons/R2S-R4S-X86-OpenWrt/master/PATCH/firewall/luci-app-firewall_add_fullcone.patch | patch -p1
+# cp -rf ../lienol-openwrt/package/network/fullconenat package/fullconenat
 
 # AutoCore
 
