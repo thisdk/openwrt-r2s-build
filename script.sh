@@ -6,7 +6,7 @@ sudo apt-get install -y subversion build-essential libncurses5-dev zlib1g-dev ga
 
 # Clone Openwrt
 
-git clone --single-branch --depth 1 -b openwrt-21.02 https://git.openwrt.org/openwrt/openwrt.git
+git clone -b openwrt-21.02 https://git.openwrt.org/openwrt/openwrt.git
 
 git clone --single-branch --depth 1 -b master https://github.com/thisdk/immortalwrt.git immortalwrt-openwrt
 git clone --single-branch --depth 1 -b master https://github.com/thisdk/luci.git immortalwrt-luci
