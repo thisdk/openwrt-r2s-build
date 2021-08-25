@@ -1,7 +1,5 @@
 name: OpenWrt R2S CI
 on:
-  schedule:
-    - cron:  '0 10 * * *'
   watch:
     types: started
 
