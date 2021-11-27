@@ -22,12 +22,12 @@ jobs:
         let core=$(nproc)+2
         make -j${core}
         echo $?
-    - name: 04 - error handle
+    - name: 04 - build error handle
       if: steps.build.outcome == 'failure'
       run: |
         cd openwrt
         make -j1 V=s
-    - name: 05 - push to artifact file	
+    - name: 05 - upload artifact file	
       uses: actions/upload-artifact@v2	
       with:	
         name: r2s-firmware
