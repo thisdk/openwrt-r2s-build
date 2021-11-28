@@ -1,28 +1,28 @@
 #!/bin/bash
 
-# delete android & dotnet
+#delete android & dotnet
 sudo rm -rf /usr/local/lib/android/
 sudo rm -rf /usr/share/dotnet
 
-# show disk space
+#show disk space
 df -h
 
-# Install Dependent library
+#install dependent library
 sudo apt-get install -y subversion build-essential libncurses5-dev zlib1g-dev gawk git ccache gettext libssl-dev xsltproc zip
 
-# Clone Openwrt
+#clone openwrt source
 git clone https://git.openwrt.org/openwrt/openwrt.git
 
-# version
+#version
 cd openwrt && sed -i 's/,SNAPSHOT/,21.11.0/g' include/version.mk
 
-# clone openwrt plugin source
+#clone openwrt plugin source
 ./scripts/feeds update -a && ./scripts/feeds install -a
 
-# openclash
+#openclash
 git clone --single-branch --depth 1 -b dev https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 
-# kms
+#kms
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-vlmcsd package/luci-app-vlmcsd
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/vlmcsd package/vlmcsd
 
@@ -35,3 +35,5 @@ rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/collections/luci-lib-docker
 svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
 svn co https://github.com/lisaac/luci-lib-docker/trunk/collections/luci-lib-docker feeds/luci/collections/luci-lib-docker
+
+#end
