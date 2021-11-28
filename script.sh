@@ -11,7 +11,10 @@ df -h
 sudo apt-get install -y subversion build-essential libncurses5-dev zlib1g-dev gawk git ccache gettext libssl-dev xsltproc zip
 
 # Clone Openwrt
-git clone https://git.openwrt.org/openwrt/openwrt.git && cd openwrt
+git clone https://git.openwrt.org/openwrt/openwrt.git
+
+# version
+cd openwrt && sed -i 's/,SNAPSHOT/,21.11.0/g' include/version.mk
 
 # clone openwrt plugin source
 ./scripts/feeds update -a && ./scripts/feeds install -a
@@ -22,10 +25,6 @@ git clone --single-branch --depth 1 -b dev https://github.com/vernesong/OpenClas
 # kms
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-vlmcsd package/luci-app-vlmcsd
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/vlmcsd package/vlmcsd
-
-#webdav
-svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav package/aliyundrive-webdav
-svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav package/luci-app-aliyundrive-webdav
 
 #diskman
 svn co https://github.com/lisaac/luci-app-diskman/trunk/applications/luci-app-diskman package/luci-app-diskman
