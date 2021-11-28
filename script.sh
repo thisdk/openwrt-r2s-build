@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# delete android & dotnet
+sudo rm -rf /usr/local/lib/android/
+sudo rm -rf /usr/share/dotnet
+
+# show disk space
+df -h
+
 # Install Dependent library
 sudo apt-get install -y subversion build-essential libncurses5-dev zlib1g-dev gawk git ccache gettext libssl-dev xsltproc zip
 
