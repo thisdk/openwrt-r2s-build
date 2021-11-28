@@ -11,7 +11,7 @@ df -h
 sudo apt-get install -y subversion build-essential libncurses5-dev zlib1g-dev gawk git ccache gettext libssl-dev xsltproc zip
 
 #clone openwrt source
-git clone https://git.openwrt.org/openwrt/openwrt.git
+git clone https://github.com/openwrt/openwrt.git
 
 #version
 cd openwrt && sed -i 's/,SNAPSHOT/,21.11.0/g' include/version.mk
