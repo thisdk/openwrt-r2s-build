@@ -32,7 +32,7 @@ rm -rf feeds/luci/collections/luci-lib-docker
 svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
 svn co https://github.com/lisaac/luci-lib-docker/trunk/collections/luci-lib-docker feeds/luci/collections/luci-lib-docker
 
-$theme
+#theme
 git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 
 #end
