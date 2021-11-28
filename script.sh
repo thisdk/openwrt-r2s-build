@@ -26,14 +26,13 @@ git clone --single-branch --depth 1 -b dev https://github.com/vernesong/OpenClas
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-vlmcsd package/luci-app-vlmcsd
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/vlmcsd package/vlmcsd
 
-#diskman
-svn co https://github.com/lisaac/luci-app-diskman/trunk/applications/luci-app-diskman package/luci-app-diskman
-mkdir package/parted && wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Parted.Makefile -O package/parted/Parted.Makefile
-
 #docker
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/collections/luci-lib-docker
 svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
 svn co https://github.com/lisaac/luci-lib-docker/trunk/collections/luci-lib-docker feeds/luci/collections/luci-lib-docker
+
+$theme
+git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 
 #end
