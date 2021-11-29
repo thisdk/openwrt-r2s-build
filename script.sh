@@ -22,6 +22,12 @@ cd openwrt && sed -i 's/,SNAPSHOT/,21.11.1/g' include/version.mk
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-vlmcsd package/luci-app-vlmcsd
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/vlmcsd package/vlmcsd
 
+#smartdns
+rm -rf feeds/packages/net/smartdns
+svn co https://github.com/Lienol/openwrt-packages/trunk/net/smartdns feeds/packages/net/smartdns
+rm -rf feeds/luci/applications/luci-app-smartdns
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-smartdns feeds/luci/applications/luci-app-smartdns
+
 #docker
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/collections/luci-lib-docker
