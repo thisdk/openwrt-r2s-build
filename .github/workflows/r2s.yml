@@ -18,7 +18,6 @@ jobs:
         cd openwrt
         cp ../.config .config
         make defconfig
-        make download -j8
         let core=$(nproc)+2
         make -j${core}
         echo $?
