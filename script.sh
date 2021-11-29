@@ -36,5 +36,6 @@ svn co https://github.com/lisaac/luci-lib-docker/trunk/collections/luci-lib-dock
 
 #theme
 git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+rm -f package/luci-theme-argon/htdocs/luci-static/argon/background/README.md
 
 #end
