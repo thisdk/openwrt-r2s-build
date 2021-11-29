@@ -1,8 +1,7 @@
 #!/bin/bash
 
-#delete android & dotnet
+#delete android
 sudo rm -rf /usr/local/lib/android/
-sudo rm -rf /usr/share/dotnet
 
 #show disk space
 df -h
@@ -14,7 +13,7 @@ sudo apt-get install -y subversion build-essential libncurses5-dev zlib1g-dev ga
 git clone https://github.com/openwrt/openwrt.git
 
 #version
-cd openwrt && sed -i 's/,SNAPSHOT/,21.11.0/g' include/version.mk
+cd openwrt && sed -i 's/,SNAPSHOT/,21.11.1/g' include/version.mk
 
 #clone openwrt plugin source
 ./scripts/feeds update -a && ./scripts/feeds install -a
