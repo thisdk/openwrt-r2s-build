@@ -19,9 +19,6 @@ cd openwrt && sed -i 's/,SNAPSHOT/,21.11.0/g' include/version.mk
 #clone openwrt plugin source
 ./scripts/feeds update -a && ./scripts/feeds install -a
 
-#openclash
-git clone --single-branch --depth 1 -b dev https://github.com/vernesong/OpenClash.git package/luci-app-openclash
-
 #kms
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-vlmcsd package/luci-app-vlmcsd
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/vlmcsd package/vlmcsd
